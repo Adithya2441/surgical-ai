@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surgical AI — Hands-On Learning Roadmap</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f0; color: #1a1a1a; padding: 24px 28px; }
+h1 { font-size: 20px; font-weight: 700; margin-bottom: 3px; }
+.sub { font-size: 13px; color: #777; margin-bottom: 22px; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+.tab { padding: 7px 15px; font-size: 13px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer; background: #fff; color: #555; transition: all .13s; user-select: none; }
+.tab:hover { background: #eee; }
+.tab.active { background: #1a3a6a; color: #fff; border-color: #1a3a6a; font-weight: 600; }
+.section { display: none; }
+.section.active { display: block; }
+.card { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+.bx { border-radius: 8px; padding: 8px 12px; font-size: 12px; text-align: center; border: 1px solid; }
+.bn { font-weight: 700; font-size: 12px; }
+.bd { font-size: 11px; margin-top: 2px; opacity: .8; }
+.bx-gray   { background: #f0f0e8; border-color: #ccc;   color: #333; }
+.bx-blue   { background: #ddeeff; border-color: #88aadd; color: #1a3a6a; }
+.bx-teal   { background: #d8f5ec; border-color: #55bb88; color: #0d4a30; }
+.bx-amber  { background: #fff4d8; border-color: #eebb44; color: #7a4d00; }
+.bx-coral  { background: #ffeae4; border-color: #ee8866; color: #882211; }
+.bx-purple { background: #ede8ff; border-color: #9988dd; color: #2a1a6a; }
+.bx-green  { background: #e4f5d8; border-color: #77cc44; color: #2a5a0a; }
+.col { display: flex; flex-direction: column; gap: 4px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.arr { text-align: center; color: #aaa; padding: 3px 0; font-size: 16px; }
+.slbl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: #888; margin: 12px 0 5px; }
+.note { font-size: 12.5px; color: #555; line-height: 1.7; margin: 5px 0; }
+.note b { color: #222; }
+.callout { border: 1px solid #88aadd; border-radius: 8px; padding: 10px 13px; background: #ddeeff; font-size: 12px; color: #1a3a6a; line-height: 1.65; margin: 8px 0; }
+.callout b { color: #0a1e4a; }
+.good { border-color: #55bb88; background: #d8f5ec; color: #0d4a30; }
+.warn { border-color: #eebb44; background: #fff4d8; color: #7a4d00; }
+.mono { font-family: 'SF Mono','Fira Code',monospace; font-size: 11px; background: #1e1e1e; color: #d4d4d4; border-radius: 8px; padding: 12px 14px; margin: 8px 0; line-height: 1.85; overflow-x: auto; white-space: pre; }
+.mono .c { color: #6a9955; }
+.mono .k { color: #569cd6; }
+.mono .s { color: #ce9178; }
+.mono .f { color: #dcdcaa; }
+.mono .n { color: #9cdcfe; }
+.step-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.pill { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; margin: 2px; }
+.p-blue   { background: #ddeeff; color: #1a3a6a; }
+.p-teal   { background: #d8f5ec; color: #0d4a30; }
+.p-amber  { background: #fff4d8; color: #7a4d00; }
+.p-coral  { background: #ffeae4; color: #882211; }
+.p-purple { background: #ede8ff; color: #2a1a6a; }
+.p-green  { background: #e4f5d8; color: #2a5a0a; }
+.divider { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+.proj-card { border: 1px solid #ddd; border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; background: #fff; }
+.proj-card:hover { border-color: #aaa; }
+.proj-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.proj-meta { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.check { color: #0d4a30; font-weight: 700; }
+.cross { color: #882211; font-weight: 700; }
+table.t { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
+table.t th { background: #f0f0e8; padding: 7px 10px; text-align: left; font-weight: 700; font-size: 11px; color: #555; border-bottom: 1px solid #ddd; }
+table.t td { padding: 7px 10px; border-bottom: 1px solid #f0f0e8; vertical-align: top; font-size: 12px; }
+table.t tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<h1>Surgical AI — Hands-On Learning Roadmap</h1>
+<p class="sub">MacBook Pro M5 · 24GB RAM · PyTorch MPS backend · directly tied to the papers you studied</p>
+
+<div class="tabs">
+  <div class="tab active" onclick="sw('p1')">① M5 Setup</div>
+  <div class="tab" onclick="sw('p2')">② Datasets</div>
+  <div class="tab" onclick="sw('p3')">③ Project Roadmap</div>
+  <div class="tab" onclick="sw('p4')">④ Code Starters</div>
+  <div class="tab" onclick="sw('p5')">⑤ Connect to Papers</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 1: M5 SETUP -->
+<!-- ============================================================ -->
+<div id="p1" class="section active">
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:8px;">Your M5 Mac — What It Can and Can't Do</div>
+  <div class="two">
+    <div>
+      <div class="slbl">What runs well on M5 + 24GB</div>
+      <div style="font-size:12px;color:#555;line-height:1.9;">
+        <span class="check">✓</span> PyTorch with <b>MPS backend</b> (Metal GPU acceleration)<br>
+        <span class="check">✓</span> ViT-Small / ViT-Base inference and fine-tuning<br>
+        <span class="check">✓</span> DINO-pretrained ViT feature extraction<br>
+        <span class="check">✓</span> RAFT optical flow on video clips<br>
+        <span class="check">✓</span> Training small Transformer encoders (4–6 layers)<br>
+        <span class="check">✓</span> JIGSAWS full dataset (small — fits easily)<br>
+        <span class="check">✓</span> Cholec80 video processing<br>
+        <span class="check">✓</span> Fine-tuning ViT-Small with frozen backbone<br>
+        <span class="check">✓</span> Running SurgicalSAM / SurgFormer inference<br>
+        <span class="check">✓</span> Local LLM with ollama (for multimodal experiments)
+      </div>
+    </div>
+    <div>
+      <div class="slbl">What will be slow or impractical</div>
+      <div style="font-size:12px;color:#555;line-height:1.9;">
+        <span class="cross">✗</span> Training ViT-Large from scratch<br>
+        <span class="cross">✗</span> Full fine-tuning of ViT-Large (too slow)<br>
+        <span class="cross">✗</span> ZEN-scale pretraining (4M+ frames)<br>
+        <span class="cross">✗</span> Cholec80 full training run (doable but slow)<br>
+        <span class="cross">✗</span> Batch sizes &gt; 16 for video models<br><br>
+        <div class="callout warn" style="margin-top:4px;"><b>Workaround:</b> Use Google Colab free tier or Colab Pro for heavy training runs. Your M5 is perfect for development, prototyping, and small experiments. Ship the big jobs to Colab.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:10px;">Environment Setup — exact commands</div>
+
+  <div class="slbl">Step 1 — Create conda environment</div>
+  <div class="mono"><span class="c"># Install miniforge (Apple Silicon native conda)</span>
+brew install miniforge
+
+conda create -n surgai python=3.11
+conda activate surgai</div>
+
+  <div class="slbl">Step 2 — Install PyTorch with MPS support</div>
+  <div class="mono"><span class="c"># PyTorch natively supports MPS on Apple Silicon</span>
+pip install torch torchvision torchaudio
+
+<span class="c"># Verify MPS is available</span>
+python -c <span class="s">"import torch; print(torch.backends.mps.is_available())"</span>
+<span class="c"># Should print: True</span></div>
+
+  <div class="slbl">Step 3 — Core ML libraries</div>
+  <div class="mono">pip install timm                  <span class="c"># ViT models, DINO weights</span>
+pip install transformers          <span class="c"># HuggingFace models</span>
+pip install einops                <span class="c"># tensor manipulation</span>
+pip install opencv-python         <span class="c"># video processing</span>
+pip install scikit-learn          <span class="c"># metrics, evaluation</span>
+pip install matplotlib seaborn    <span class="c"># visualization</span>
+pip install wandb                 <span class="c"># experiment tracking</span>
+pip install jupyter               <span class="c"># notebooks</span>
+pip install av                    <span class="c"># fast video decoding (PyAV)</span>
+pip install decord                <span class="c"># even faster video decoding</span></div>
+
+  <div class="slbl">Step 4 — Verify MPS training works</div>
+  <div class="mono"><span class="k">import</span> torch
+
+device = torch.device(<span class="s">"mps"</span> <span class="k">if</span> torch.backends.mps.is_available() <span class="k">else</span> <span class="s">"cpu"</span>)
+<span class="f">print</span>(<span class="s">f"Using device: </span>{device}<span class="s">"</span>)
+
+<span class="c"># Quick benchmark</span>
+x = torch.randn(<span class="n">1000</span>, <span class="n">1000</span>).to(device)
+y = torch.randn(<span class="n">1000</span>, <span class="n">1000</span>).to(device)
+z = x @ y  <span class="c"># matrix multiply on M5 GPU</span>
+<span class="f">print</span>(<span class="s">"MPS matrix multiply works!"</span>)</div>
+
+  <div class="slbl">Step 5 — Optional: Ollama for local LLM experiments</div>
+  <div class="mono"><span class="c"># For multimodal surgical AI experiments later</span>
+brew install ollama
+ollama pull llava        <span class="c"># vision-language model</span>
+ollama pull llama3.2-vision</div>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 2: DATASETS -->
+<!-- ============================================================ -->
+<div id="p2" class="section">
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:10px;">Public Surgical Datasets — Start Here</div>
+  <div class="note" style="margin-bottom:12px;">These are the datasets the community actually uses. Start with JIGSAWS — it's directly referenced in the SAIS paper, it's small enough to run locally, and it has both gesture labels and skill labels.</div>
+
+  <!-- JIGSAWS -->
+  <div class="proj-card" style="border-color:#0d4a30;border-width:2px;">
+    <div class="proj-title">JIGSAWS <span style="font-size:11px;font-weight:400;color:#888;">JHU-ISI Gesture and Skill Assessment Working Set</span></div>
+    <div class="proj-meta">
+      <span class="pill p-teal">Start here</span>
+      <span class="pill p-blue">Directly from SAIS paper</span>
+      <span class="pill p-green">Small — runs locally</span>
+      <span class="pill p-purple">Gestures + Skill labels</span>
+    </div>
+    <div class="two" style="gap:12px;">
+      <div>
+        <div style="font-size:12px;color:#555;line-height:1.7;">
+          <b>What it is:</b> Videos of surgeons performing 3 tasks on a surgical simulator — suturing, knot tying, needle passing. Annotated with gesture labels AND skill scores (GRS — Global Rating Scale).<br><br>
+          <b>Size:</b> ~39 videos per task · manageable on MacBook<br>
+          <b>Gestures:</b> 10 gesture types (G1–G10)<br>
+          <b>Skill:</b> Novice / Intermediate / Expert
+        </div>
+      </div>
+      <div>
+        <div class="mono" style="font-size:10px;">
+<span class="c"># Request access at:</span>
+<span class="c"># cirl.lcsr.jhu.edu/Research/...JIGSAWS</span>
+<span class="c"># Free for research · approved in ~1 day</span>
+
+<span class="c"># Dataset structure after download:</span>
+JIGSAWS/
+  Suturing/
+    video/           <span class="c"># .avi files</span>
+    kinematics/      <span class="c"># robot arm positions</span>
+    transcriptions/  <span class="c"># gesture labels</span>
+    meta_file_Suturing.txt</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOLEC80 -->
+  <div class="proj-card">
+    <div class="proj-title">Cholec80</div>
+    <div class="proj-meta">
+      <span class="pill p-blue">Classic benchmark</span>
+      <span class="pill p-amber">Phase recognition</span>
+      <span class="pill p-amber">Tool detection</span>
+    </div>
+    <div style="font-size:12px;color:#555;line-height:1.7;">
+      80 videos of laparoscopic cholecystectomy (gallbladder removal). Annotated with 7 surgical phases and 7 tool labels. The most widely used surgical workflow benchmark. Used in the ZEN evaluation.<br><br>
+      <b>Request:</b> camma.unistra.fr/datasets · <b>Size:</b> ~80GB total, start with 10–20 videos
+    </div>
+  </div>
+
+  <!-- CholecT50 -->
+  <div class="proj-card">
+    <div class="proj-title">CholecT50</div>
+    <div class="proj-meta">
+      <span class="pill p-purple">Action triplets</span>
+      <span class="pill p-blue">Instrument-verb-target</span>
+    </div>
+    <div style="font-size:12px;color:#555;line-height:1.7;">
+      50 videos from Cholec80 with richer annotations: action triplets of the form (instrument, verb, tissue). E.g. (grasper, retract, gallbladder). This is the closest public benchmark to what SAIS calls "gesture classification." Referenced in SAIS paper.<br><br>
+      <b>GitHub:</b> github.com/CAMMA-public/cholect50 · <b>Size:</b> subset of Cholec80
+    </div>
+  </div>
+
+  <!-- AutoLaparo -->
+  <div class="proj-card">
+    <div class="proj-title">AutoLaparo</div>
+    <div class="proj-meta">
+      <span class="pill p-green">Newer · 2023</span>
+      <span class="pill p-blue">Multiple tasks</span>
+    </div>
+    <div style="font-size:12px;color:#555;line-height:1.7;">
+      21 laparoscopic hysterectomy videos with 3 tasks: workflow recognition, anatomy segmentation, and instrument motion prediction. Good for multi-task learning experiments.<br><br>
+      <b>Paper:</b> AutoLaparo (MICCAI 2023) · available on GitHub
+    </div>
+  </div>
+
+  <!-- PSI-AVA -->
+  <div class="proj-card">
+    <div class="proj-title">PSI-AVA / Endoscapes</div>
+    <div class="proj-meta">
+      <span class="pill p-amber">Segmentation</span>
+      <span class="pill p-blue">Anatomy + tools</span>
+    </div>
+    <div style="font-size:12px;color:#555;line-height:1.7;">
+      If you want to explore surgical segmentation — identifying instrument and anatomy boundaries in video frames. Endoscapes2023 is a recent challenge dataset with segmentation annotations.<br><br>
+      <b>GitHub:</b> github.com/BCV-Uniandes/LABIS
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:4px;"><b>Recommendation for your timeline:</b> Request JIGSAWS access today (approved same day usually). While waiting, download a 5-video subset of Cholec80 and run the setup steps from Tab 1. JIGSAWS is the dataset you'll do your most meaningful work on — it's small, clean, and directly tied to the SAIS paper's evaluation.</div>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 3: PROJECT ROADMAP -->
+<!-- ============================================================ -->
+<div id="p3" class="section">
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:10px;">4-Stage Project Roadmap — From Baseline to SAIS-Like System</div>
+  <div class="note" style="margin-bottom:14px;">Each stage builds on the last. By stage 4 you'll have built something structurally close to SAIS on a public benchmark — and you'll have genuine things to talk about in interviews.</div>
+
+  <!-- STAGE 1 -->
+  <div style="border:1px solid #55bb88;border-radius:10px;padding:16px;margin-bottom:14px;background:#f5fdf8;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+      <div class="step-num" style="background:#d8f5ec;color:#0d4a30;">1</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#0d4a30;">Frame-Level CNN Baseline</div>
+        <div style="font-size:11px;color:#888;">Week 1 · JIGSAWS · ~10 hours of work</div>
+      </div>
+      <span class="pill p-teal" style="margin-left:auto;">Start here</span>
+    </div>
+    <div class="two" style="gap:12px;">
+      <div>
+        <div style="font-size:12px;color:#555;line-height:1.7;margin-bottom:6px;"><b>What you build:</b> A ResNet50 that classifies individual frames from JIGSAWS into one of 10 gesture classes. No temporal modeling — just frame-by-frame CNN classification.</div>
+        <div style="font-size:12px;color:#555;line-height:1.7;margin-bottom:6px;"><b>Why start here:</b> This is the naive baseline. When you add temporal modeling in Stage 2 and see performance jump, you'll viscerally understand why SAIS uses a Transformer.</div>
+        <div style="font-size:12px;color:#555;line-height:1.7;"><b>What you'll learn:</b> Video data pipelines, frame extraction, surgical dataset quirks, basic evaluation with F1 score, leave-one-user-out cross validation (the JIGSAWS standard protocol)</div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;">Deliverables</div>
+        <div style="font-size:12px;color:#555;line-height:1.8;">
+          <span class="check">✓</span> JIGSAWS dataloader in PyTorch<br>
+          <span class="check">✓</span> Frame extraction from .avi files<br>
+          <span class="check">✓</span> ResNet50 transfer learning classifier<br>
+          <span class="check">✓</span> Leave-one-user-out evaluation<br>
+          <span class="check">✓</span> F1 score per gesture class<br>
+          <span class="check">✓</span> Confusion matrix visualization
+        </div>
+        <div style="margin-top:8px;"><span class="pill p-blue">Expected F1: ~70–75%</span> <span style="font-size:11px;color:#888;">(SAIS got 87.5% — the gap tells you what temporal modeling adds)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 2 -->
+  <div style="border:1px solid #88aadd;border-radius:10px;padding:16px;margin-bottom:14px;background:#f5f8ff;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+      <div class="step-num" style="background:#ddeeff;color:#1a3a6a;">2</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#1a3a6a;">Add Optical Flow + Temporal Modeling</div>
+        <div style="font-size:11px;color:#888;">Week 2–3 · JIGSAWS · ~15 hours</div>
+      </div>
+    </div>
+    <div class="two" style="gap:12px;">
+      <div>
+        <div style="font-size:12px;color:#555;line-height:1.7;margin-bottom:6px;"><b>What you build:</b> Two upgrades — (1) compute optical flow between frames using RAFT (exact method from SAIS paper), and (2) replace single-frame classification with a sliding window of T=8 frames fed through an LSTM or simple Transformer.</div>
+        <div style="font-size:12px;color:#555;line-height:1.7;"><b>The aha moment:</b> Watch performance jump when you add temporal context. Then try removing optical flow and watch it drop slightly. You'll have personally reproduced the key ablation from the paper.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;">Deliverables</div>
+        <div style="font-size:12px;color:#555;line-height:1.8;">
+          <span class="check">✓</span> RAFT optical flow extraction pipeline<br>
+          <span class="check">✓</span> Clip-level dataloader (T frames per sample)<br>
+          <span class="check">✓</span> LSTM baseline for temporal modeling<br>
+          <span class="check">✓</span> Simple Transformer encoder (2–4 layers)<br>
+          <span class="check">✓</span> Ablation: RGB only vs flow only vs both
+        </div>
+        <div style="margin-top:8px;"><span class="pill p-blue">Expected F1: ~82–86%</span> <span style="font-size:11px;color:#888;">(getting close to SAIS)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 3 -->
+  <div style="border:1px solid #eebb44;border-radius:10px;padding:16px;margin-bottom:14px;background:#fffdf5;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+      <div class="step-num" style="background:#fff4d8;color:#7a4d00;">3</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#7a4d00;">DINO-ViT Features + Contrastive Learning</div>
+        <div style="font-size:11px;color:#888;">Week 3–4 · JIGSAWS · ~15 hours</div>
+      </div>
+    </div>
+    <div class="two" style="gap:12px;">
+      <div>
+        <div style="font-size:12px;color:#555;line-height:1.7;margin-bottom:6px;"><b>What you build:</b> Replace ResNet50 with a frozen DINO-pretrained ViT-Small from <code>timm</code>. Add learnable prototypes per gesture class. Train with InfoNCE loss instead of cross-entropy. This is structurally SAIS on JIGSAWS.</div>
+        <div style="font-size:12px;color:#555;line-height:1.7;"><b>Bonus:</b> Visualize the attention maps from the ViT using DINO's built-in attention visualization — you'll see it attend to instrument tips, just like Figure 6 of the paper.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;">Deliverables</div>
+        <div style="font-size:12px;color:#555;line-height:1.8;">
+          <span class="check">✓</span> DINO-ViT feature extractor (frozen)<br>
+          <span class="check">✓</span> Learnable prototype vectors per class<br>
+          <span class="check">✓</span> InfoNCE / SupCon loss implementation<br>
+          <span class="check">✓</span> Attention map visualization<br>
+          <span class="check">✓</span> t-SNE plot of learned embedding space
+        </div>
+        <div style="margin-top:8px;"><span class="pill p-amber">Expected F1: ~87–90%</span> <span style="font-size:11px;color:#888;">(at or above SAIS level)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 4 -->
+  <div style="border:1px solid #9988dd;border-radius:10px;padding:16px;background:#f8f5ff;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+      <div class="step-num" style="background:#ede8ff;color:#2a1a6a;">4</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#2a1a6a;">Fine-tune a Surgical Foundation Model (ZEN-style)</div>
+        <div style="font-size:11px;color:#888;">Week 4–6 · JIGSAWS + Cholec80 · ~20 hours</div>
+      </div>
+      <span class="pill p-purple" style="margin-left:auto;">Advanced</span>
+    </div>
+    <div class="two" style="gap:12px;">
+      <div>
+        <div style="font-size:12px;color:#555;line-height:1.7;margin-bottom:6px;"><b>What you build:</b> Take a public surgical foundation model checkpoint (SurgicalSAM, SurgFormer, or UniSurg) and fine-tune it on JIGSAWS in few-shot fashion — using only 5–10 examples per class. Compare against your Stage 3 model trained with full data.</div>
+        <div style="font-size:12px;color:#555;line-height:1.7;"><b>The point:</b> You'll personally experience why foundation models matter. The few-shot foundation model will match or beat your fully-trained Stage 3 model — with 100x less labeled data.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;">Deliverables</div>
+        <div style="font-size:12px;color:#555;line-height:1.8;">
+          <span class="check">✓</span> Load pretrained surgical foundation model<br>
+          <span class="check">✓</span> Few-shot fine-tuning loop<br>
+          <span class="check">✓</span> Label efficiency curve (1, 5, 10, 50, all)<br>
+          <span class="check">✓</span> Zero-shot probe of representation quality<br>
+          <span class="check">✓</span> Side-by-side comparison vs Stage 3
+        </div>
+        <div style="margin-top:8px;"><span class="pill p-purple">Interview gold:</span> <span style="font-size:11px;color:#888;">"I reproduced the few-shot advantage of foundation models on JIGSAWS"</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 4: CODE STARTERS -->
+<!-- ============================================================ -->
+<div id="p4" class="section">
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:4px;">Code Starter 1 — JIGSAWS Dataloader</div>
+  <div class="note" style="margin-bottom:8px;">The hardest part of any project is the data pipeline. This gets you loading JIGSAWS clips in PyTorch.</div>
+  <div class="mono"><span class="k">import</span> torch
+<span class="k">from</span> torch.utils.data <span class="k">import</span> Dataset
+<span class="k">import</span> cv2, os, numpy <span class="k">as</span> np
+
+<span class="k">class</span> <span class="f">JIGSAWSDataset</span>(Dataset):
+    <span class="k">def</span> <span class="f">__init__</span>(self, video_dir, label_dir, clip_len=<span class="n">8</span>, transform=<span class="k">None</span>):
+        self.clips = []
+        self.labels = []
+        self.clip_len = clip_len
+        self.transform = transform
+
+        <span class="c"># Gesture vocabulary from the paper</span>
+        self.gesture_map = {
+            <span class="s">'G1'</span>:<span class="n">0</span>, <span class="s">'G2'</span>:<span class="n">1</span>, <span class="s">'G3'</span>:<span class="n">2</span>, <span class="s">'G4'</span>:<span class="n">3</span>, <span class="s">'G5'</span>:<span class="n">4</span>,
+            <span class="s">'G6'</span>:<span class="n">5</span>, <span class="s">'G8'</span>:<span class="n">6</span>, <span class="s">'G9'</span>:<span class="n">7</span>, <span class="s">'G10'</span>:<span class="n">8</span>, <span class="s">'G11'</span>:<span class="n">9</span>
+        }
+
+        <span class="k">for</span> label_file <span class="k">in</span> os.listdir(label_dir):
+            <span class="k">if not</span> label_file.endswith(<span class="s">'.txt'</span>): <span class="k">continue</span>
+            video_id = label_file.replace(<span class="s">'_capture1.txt'</span>, <span class="s">''</span>)
+            video_path = os.path.join(video_dir, video_id + <span class="s">'_capture1.avi'</span>)
+
+            <span class="k">with</span> open(os.path.join(label_dir, label_file)) <span class="k">as</span> f:
+                <span class="k">for</span> line <span class="k">in</span> f:
+                    start, end, gesture = line.strip().split()
+                    <span class="k">if</span> gesture <span class="k">in</span> self.gesture_map:
+                        self.clips.append((video_path, int(start), int(end)))
+                        self.labels.append(self.gesture_map[gesture])
+
+    <span class="k">def</span> <span class="f">__len__</span>(self): <span class="k">return</span> len(self.clips)
+
+    <span class="k">def</span> <span class="f">__getitem__</span>(self, idx):
+        video_path, start, end = self.clips[idx]
+        label = self.labels[idx]
+
+        cap = cv2.VideoCapture(video_path)
+        frames = []
+        <span class="c"># Sample clip_len frames uniformly from the gesture segment</span>
+        frame_ids = np.linspace(start, end, self.clip_len, dtype=int)
+
+        <span class="k">for</span> fid <span class="k">in</span> frame_ids:
+            cap.set(cv2.CAP_PROP_POS_FRAMES, fid)
+            ret, frame = cap.read()
+            <span class="k">if</span> ret:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame = cv2.resize(frame, (<span class="n">224</span>, <span class="n">224</span>))
+                frames.append(frame)
+        cap.release()
+
+        frames = np.stack(frames).astype(np.float32) / <span class="n">255.0</span>
+        frames = torch.tensor(frames).permute(<span class="n">0</span>, <span class="n">3</span>, <span class="n">1</span>, <span class="n">2</span>)  <span class="c"># T,C,H,W</span>
+        <span class="k">return</span> frames, label</div>
+</div>
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:4px;">Code Starter 2 — DINO-ViT Feature Extractor (MPS)</div>
+  <div class="note" style="margin-bottom:8px;">Load the exact same ViT used as SAIS's frozen backbone, run on MPS, extract frame features.</div>
+  <div class="mono"><span class="k">import</span> torch, timm
+<span class="k">from</span> torchvision <span class="k">import</span> transforms
+
+device = torch.device(<span class="s">"mps"</span> <span class="k">if</span> torch.backends.mps.is_available() <span class="k">else</span> <span class="s">"cpu"</span>)
+
+<span class="c"># Load DINO-pretrained ViT-Small — the exact backbone used in SAIS</span>
+vit = timm.create_model(
+    <span class="s">'vit_small_patch16_224_dino'</span>,
+    pretrained=<span class="k">True</span>,
+    num_classes=<span class="n">0</span>       <span class="c"># remove classification head → get 384-dim features</span>
+).to(device)
+vit.eval()
+
+<span class="c"># Freeze all weights — SAIS keeps ViT frozen</span>
+<span class="k">for</span> param <span class="k">in</span> vit.parameters():
+    param.requires_grad = <span class="k">False</span>
+
+<span class="c"># ImageNet normalization (DINO was trained on ImageNet)</span>
+normalize = transforms.Normalize(
+    mean=[<span class="n">0.485</span>, <span class="n">0.456</span>, <span class="n">0.406</span>],
+    std=[<span class="n">0.229</span>, <span class="n">0.224</span>, <span class="n">0.225</span>]
+)
+
+<span class="k">def</span> <span class="f">extract_frame_features</span>(frames):
+    <span class="s">"""
+    frames: Tensor of shape (T, C, H, W) — one clip
+    returns: Tensor of shape (T, 384) — one feature per frame
+    """</span>
+    <span class="k">with</span> torch.no_grad():
+        frames = normalize(frames.to(device))
+        <span class="c"># Process all T frames as a batch</span>
+        features = vit(frames)   <span class="c"># (T, 384)</span>
+    <span class="k">return</span> features
+
+<span class="c"># Visualize DINO attention maps (shows what ViT focuses on)</span>
+<span class="k">def</span> <span class="f">get_attention_map</span>(frame_tensor):
+    <span class="s">"""Returns spatial attention from last ViT layer"""</span>
+    attentions = vit.get_intermediate_layers(
+        frame_tensor.unsqueeze(<span class="n">0</span>).to(device),
+        n=<span class="n">1</span>
+    )
+    <span class="k">return</span> attentions  <span class="c"># visualize to see instrument focus</span></div>
+</div>
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:4px;">Code Starter 3 — Temporal Transformer Encoder</div>
+  <div class="note" style="margin-bottom:8px;">The temporal module from SAIS — takes T frame features, outputs a single clip-level representation via CLS token.</div>
+  <div class="mono"><span class="k">import</span> torch.nn <span class="k">as</span> nn
+
+<span class="k">class</span> <span class="f">TemporalTransformer</span>(nn.Module):
+    <span class="k">def</span> <span class="f">__init__</span>(self, feat_dim=<span class="n">384</span>, n_heads=<span class="n">8</span>, n_layers=<span class="n">4</span>, dropout=<span class="n">0.1</span>):
+        super().__init__()
+        self.feat_dim = feat_dim
+
+        <span class="c"># Learnable CLS token — aggregates clip-level info</span>
+        self.cls_token = nn.Parameter(torch.randn(<span class="n">1</span>, <span class="n">1</span>, feat_dim))
+
+        <span class="c"># Learnable positional embeddings (one per frame position)</span>
+        self.pos_embed = nn.Parameter(torch.randn(<span class="n">1</span>, <span class="n">65</span>, feat_dim))  <span class="c"># 64 + CLS</span>
+
+        <span class="c"># Stack of Transformer encoder layers</span>
+        encoder_layer = nn.TransformerEncoderLayer(
+            d_model=feat_dim, nhead=n_heads,
+            dim_feedforward=feat_dim * <span class="n">4</span>,
+            dropout=dropout, batch_first=<span class="k">True</span>
+        )
+        self.transformer = nn.TransformerEncoder(encoder_layer, n_layers)
+        self.norm = nn.LayerNorm(feat_dim)
+
+    <span class="k">def</span> <span class="f">forward</span>(self, x):
+        <span class="s">"""
+        x: (B, T, feat_dim) — batch of clips, T frame features each
+        returns: (B, feat_dim) — one clip representation per item
+        """</span>
+        B = x.shape[<span class="n">0</span>]
+
+        <span class="c"># Prepend CLS token to each clip in the batch</span>
+        cls = self.cls_token.expand(B, -<span class="n">1</span>, -<span class="n">1</span>)   <span class="c"># (B, 1, D)</span>
+        x = torch.cat([cls, x], dim=<span class="n">1</span>)           <span class="c"># (B, T+1, D)</span>
+
+        <span class="c"># Add temporal positional embeddings</span>
+        x = x + self.pos_embed[:, :x.shape[<span class="n">1</span>], :]
+
+        <span class="c"># Self-attention across all frames simultaneously</span>
+        x = self.transformer(x)   <span class="c"># every frame attends to every other frame</span>
+        x = self.norm(x)
+
+        <span class="c"># CLS token at position 0 = clip-level summary</span>
+        <span class="k">return</span> x[:, <span class="n">0</span>, :]   <span class="c"># (B, feat_dim)</span></div>
+</div>
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:4px;">Code Starter 4 — RAFT Optical Flow</div>
+  <div class="note" style="margin-bottom:8px;">Extract optical flow the same way SAIS does — using RAFT from torchvision.</div>
+  <div class="mono"><span class="k">from</span> torchvision.models.optical_flow <span class="k">import</span> raft_small, Raft_Small_Weights
+<span class="k">import</span> torch
+
+device = torch.device(<span class="s">"mps"</span> <span class="k">if</span> torch.backends.mps.is_available() <span class="k">else</span> <span class="s">"cpu"</span>)
+
+<span class="c"># Load pretrained RAFT — same model referenced in SAIS paper</span>
+weights = Raft_Small_Weights.DEFAULT
+raft = raft_small(weights=weights).to(device).eval()
+
+<span class="k">def</span> <span class="f">compute_flow</span>(frame1, frame2):
+    <span class="s">"""
+    frame1, frame2: Tensors (1, C, H, W) — consecutive frames
+    returns: flow map (1, 2, H, W) — dx and dy per pixel
+    """</span>
+    <span class="k">with</span> torch.no_grad():
+        <span class="c"># RAFT expects uint8 images [0, 255] as input</span>
+        f1 = (frame1 * <span class="n">255</span>).byte().to(device)
+        f2 = (frame2 * <span class="n">255</span>).byte().to(device)
+        flow_predictions = raft(f1, f2)
+        <span class="k">return</span> flow_predictions[-<span class="n">1</span>]   <span class="c"># final refined flow estimate</span>
+
+<span class="k">def</span> <span class="f">extract_clip_flows</span>(frames):
+    <span class="s">"""
+    frames: Tensor (T, C, H, W)
+    returns: flow_maps (T-1, 2, H, W)
+    """</span>
+    flows = []
+    <span class="k">for</span> i <span class="k">in</span> range(len(frames) - <span class="n">1</span>):
+        flow = compute_flow(frames[i:i+<span class="n">1</span>], frames[i+<span class="n">1</span>:i+<span class="n">2</span>])
+        flows.append(flow.squeeze(<span class="n">0</span>))
+    <span class="k">return</span> torch.stack(flows)</div>
+</div>
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:4px;">Code Starter 5 — InfoNCE Loss with Prototypes</div>
+  <div class="note" style="margin-bottom:8px;">The exact classification mechanism SAIS uses — learnable prototypes + cosine similarity + InfoNCE.</div>
+  <div class="mono"><span class="k">import</span> torch, torch.nn <span class="k">as</span> nn, torch.nn.functional <span class="k">as</span> F
+
+<span class="k">class</span> <span class="f">PrototypeClassifier</span>(nn.Module):
+    <span class="k">def</span> <span class="f">__init__</span>(self, feat_dim=<span class="n">384</span>, n_classes=<span class="n">10</span>, temperature=<span class="n">0.07</span>):
+        super().__init__()
+        self.temperature = temperature
+        <span class="c"># One learnable prototype per class — trained end-to-end</span>
+        self.prototypes = nn.Parameter(torch.randn(n_classes, feat_dim))
+
+    <span class="k">def</span> <span class="f">forward</span>(self, h, labels=<span class="k">None</span>):
+        <span class="s">"""
+        h: (B, feat_dim) — clip embeddings from Temporal Transformer
+        labels: (B,) — gesture class indices (None at inference)
+        """</span>
+        <span class="c"># L2-normalize embeddings and prototypes</span>
+        h_norm = F.normalize(h, dim=-<span class="n">1</span>)
+        p_norm = F.normalize(self.prototypes, dim=-<span class="n">1</span>)
+
+        <span class="c"># Cosine similarity to all prototypes: (B, n_classes)</span>
+        logits = h_norm @ p_norm.T / self.temperature
+
+        <span class="k">if</span> labels <span class="k">is not None</span>:
+            <span class="c"># InfoNCE = cross-entropy in this formulation</span>
+            loss = F.cross_entropy(logits, labels)
+            <span class="k">return</span> loss, logits
+        <span class="k">return</span> logits
+
+<span class="c"># Full SAIS-like model assembly</span>
+<span class="k">class</span> <span class="f">SAISLite</span>(nn.Module):
+    <span class="k">def</span> <span class="f">__init__</span>(self, n_classes=<span class="n">10</span>):
+        super().__init__()
+        self.temporal = TemporalTransformer(feat_dim=<span class="n">384</span>)
+        self.proj = nn.Sequential(
+            nn.Linear(<span class="n">384</span>, <span class="n">256</span>), nn.ReLU(), nn.Linear(<span class="n">256</span>, <span class="n">256</span>)
+        )
+        self.classifier = PrototypeClassifier(feat_dim=<span class="n">256</span>, n_classes=n_classes)
+
+    <span class="k">def</span> <span class="f">forward</span>(self, frame_features, labels=<span class="k">None</span>):
+        <span class="c"># frame_features: (B, T, 384) from frozen DINO-ViT</span>
+        h = self.temporal(frame_features)   <span class="c"># (B, 384)</span>
+        h = self.proj(h)                    <span class="c"># (B, 256)</span>
+        <span class="k">return</span> self.classifier(h, labels)</div>
+</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 5: CONNECT TO PAPERS -->
+<!-- ============================================================ -->
+<div id="p5" class="section">
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:10px;">How Each Project Stage Connects to the Papers</div>
+  <div class="note" style="margin-bottom:12px;">Every experiment you run maps directly to something in the three papers. This is what makes your hands-on work interview-relevant — you can say "I personally reproduced this result."</div>
+
+  <table class="t">
+    <tr>
+      <th>What you build</th>
+      <th>What it teaches you</th>
+      <th>Paper connection</th>
+    </tr>
+    <tr>
+      <td>ResNet frame classifier baseline</td>
+      <td>Why single-frame classification fails for surgical gesture recognition</td>
+      <td>SAIS paper — motivation for temporal modeling</td>
+    </tr>
+    <tr>
+      <td>RAFT optical flow extraction</td>
+      <td>What optical flow captures vs RGB; why SAIS uses both</td>
+      <td>SAIS Figure 2d ablation — "without flow" −3 PPV</td>
+    </tr>
+    <tr>
+      <td>Temporal Transformer encoder</td>
+      <td>Why self-attention beats LSTM for surgical clips</td>
+      <td>SAIS ablation — "without SA" −20 PPV (biggest drop)</td>
+    </tr>
+    <tr>
+      <td>DINO-ViT feature extraction</td>
+      <td>What self-supervised ImageNet pretraining gives you; attention maps on instruments</td>
+      <td>SAIS Figure 6 — ViT attends to instrument tips and needles</td>
+    </tr>
+    <tr>
+      <td>InfoNCE + prototype classifier</td>
+      <td>Why contrastive learning beats cross-entropy for surgical embeddings</td>
+      <td>SAIS core architecture — prototype-based supervised contrastive learning</td>
+    </tr>
+    <tr>
+      <td>Leave-one-user-out evaluation</td>
+      <td>What rigorous evaluation means; information leakage from splitting by clip vs. by user</td>
+      <td>SAIS Methods — "Evaluation setups" section critiquing prior work</td>
+    </tr>
+    <tr>
+      <td>t-SNE of embedding space</td>
+      <td>Whether your learned representations cluster correctly by gesture class</td>
+      <td>ZEN Tab 4 — the embedding space diagram you built</td>
+    </tr>
+    <tr>
+      <td>Label efficiency curve (Stage 4)</td>
+      <td>How performance degrades as labels decrease; where foundation models pull ahead</td>
+      <td>ZEN paper — few-shot vs full fine-tuning results</td>
+    </tr>
+    <tr>
+      <td>Fine-tuning surgical foundation model few-shot</td>
+      <td>Personally experiencing why foundation models change the annotation economics</td>
+      <td>ZEN core claim — foundation model advantage in low-data regime</td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:10px;">How to talk about this in your interview</div>
+  <div class="three">
+    <div>
+      <div class="slbl">After Stage 1–2</div>
+      <div style="font-size:12px;color:#555;line-height:1.7;">"I reproduced the baseline ablation from the SAIS paper — implemented single-frame ResNet classification on JIGSAWS, then added a Temporal Transformer and watched F1 jump from ~73% to ~85%. The performance gap maps directly to the −20 PPV the paper reports when they remove self-attention."</div>
+    </div>
+    <div>
+      <div class="slbl">After Stage 3</div>
+      <div style="font-size:12px;color:#555;line-height:1.7;">"I implemented a version of the SAIS architecture on JIGSAWS — frozen DINO-ViT for frame features, a 4-layer Temporal Transformer, and InfoNCE loss with learnable prototypes. I visualized the attention maps and saw the ViT focusing on instrument tips, consistent with Figure 6 of the paper. Achieved 88% F1, close to the paper's 87.5%."</div>
+    </div>
+    <div>
+      <div class="slbl">After Stage 4</div>
+      <div style="font-size:12px;color:#555;line-height:1.7;">"I fine-tuned a surgical foundation model checkpoint on JIGSAWS in few-shot fashion — using only 10 labeled examples per gesture class — and matched the performance of my fully-supervised Stage 3 model trained on the entire dataset. This gave me a direct intuition for why ZEN's pretraining matters: the foundation model already understands surgery deeply enough that it needs very few labels to adapt."</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:12px;">
+    <b>Tip:</b> Put everything in a clean GitHub repo as you go. Structure it as <code>surgical-ai-experiments/</code> with a notebook per stage, clean READMEs, and reproducible results. During your interview you can screen-share your attention map visualizations and t-SNE plots — showing rather than just telling is 10x more compelling.
+  </div>
+</div>
+
+<div class="card">
+  <div style="font-size:14px;font-weight:700;margin-bottom:10px;">Useful papers and repos to read alongside your experiments</div>
+  <div class="three">
+    <div>
+      <div class="slbl">Foundation model checkpoints to try</div>
+      <div style="font-size:12px;color:#555;line-height:1.8;">
+        <b>SurgFormer</b> — github.com/isyangshu/SurgFormer<br>
+        <b>UniSurg</b> — recent, arXiv 2602.05638<br>
+        <b>SurgicalSAM</b> — SAM fine-tuned for surgical segmentation<br>
+        <b>Endovit</b> — ViT pretrained on endoscopy images
+      </div>
+    </div>
+    <div>
+      <div class="slbl">Key libraries for surgical AI</div>
+      <div style="font-size:12px;color:#555;line-height:1.8;">
+        <b>timm</b> — all ViT variants, DINO weights<br>
+        <b>torchvision</b> — RAFT optical flow<br>
+        <b>decord</b> — fast video frame reading<br>
+        <b>einops</b> — clean tensor reshaping<br>
+        <b>wandb</b> — experiment tracking<br>
+        <b>gradcam</b> — attention visualization
+      </div>
+    </div>
+    <div>
+      <div class="slbl">Papers to read next</div>
+      <div style="font-size:12px;color:#555;line-height:1.8;">
+        <b>DINO</b> — Caron et al. 2021 (backbone of SAIS)<br>
+        <b>ViT</b> — Dosovitskiy et al. 2021<br>
+        <b>RAFT</b> — Teed & Deng 2020<br>
+        <b>SupCon</b> — Khosla et al. 2020 (contrastive loss)<br>
+        <b>Cholec80</b> — Twinanda et al. 2017 (baseline benchmark)
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+function sw(id) {
+  const ids = ['p1','p2','p3','p4','p5'];
+  ids.forEach((s,i) => {
+    document.getElementById(s).classList.toggle('active', s===id);
+    document.querySelectorAll('.tab')[i].classList.toggle('active', ids[i]===id);
+  });
+}
+</script>
+</body>
+</html>

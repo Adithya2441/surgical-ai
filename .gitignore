@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+.venv/
+JIGSAWS/
+Cholec80/
+*.avi
+*.mp4
+*.pyc
+.ipynb_checkpoints/
