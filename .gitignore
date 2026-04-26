@@ -7,3 +7,4 @@ Cholec80/
 *.mp4
 *.pyc
 .ipynb_checkpoints/
+*.pt
