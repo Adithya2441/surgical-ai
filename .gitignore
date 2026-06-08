@@ -9,3 +9,13 @@ Cholec80/
 .ipynb_checkpoints/
 *.pt
 flow_cache/
+cholec80_frames/
+cholec80_features_dino/
+cholec80_frame_log.json
+cholec80_frames/
+cholec80_features_dino/
+cholec80_frame_log.json
+cholec80_features_biomed/
+flow_cache/
+*.npz
+*.pt
